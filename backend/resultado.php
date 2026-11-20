@@ -2,69 +2,42 @@
 
 require 'conexao.php';
 
-$termo = $_GET["termo"];
+$termo = isset($_GET["termo"]) ? trim($_GET["termo"]) : "";
 
-//talvez eu delete essa parte
-if(empty($termo)){
-    header("Location:../index.html");
+if ($termo === "") {
     exit;
 }
-//talvez eu delete essa parte
 
-$sql = "SELECT * FROM tb_emergencias WHERE tipo LIKE '%$termo%'";
+$sql = "SELECT tipo, protocolo, faixa_etaria
+        FROM tb_emergencias
+        WHERE tipo LIKE ?";
 
-$resultado = $conexao->query($sql);
+$stmt = $conexao->prepare($sql);
 
-?>
+$busca = "%" . $termo . "%";
 
-<!DOCTYPE html>
-    <html lang="pt-BR">
+$stmt->bind_param("s", $busca);
+$stmt->execute();
 
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="style1.css">
-            <title>Resultado da busca</title>
-        </head>
-    <body>
-        <div class="box">
-            <article>
-        <?php
+$resultado = $stmt->get_result();
 
-        if($resultado->num_rows > 0){
-            while($emergencia = $resultado -> fetch_assoc()) {
-            echo "Emergência encontrada: " . $emergencia["tipo"] . "<br>";
-            echo "Faixa etária: " . $emergencia["faixa_etaria"] . "<br>";
-        }
-    
+if ($resultado->num_rows > 0) {
+
+    while ($emergencia = $resultado->fetch_assoc()) {
+
+        echo $emergencia["tipo"] . "|";
+        echo $emergencia["faixa_etaria"] . "|";
+        echo $emergencia["protocolo"];
+
     }
-        else{
-            echo "Nenhuma emergência encontrada.";
+
+} else {
+
+    echo "nenhuma";
 
 }
 
 ?>
-            </article>
-
-            <aside>
-                <!-- trocar isso aqui por uma variavel dentro do banco de dados -->
-                <?php
-                $conteudo = file_get_contents('teste.txt');
-                echo $conteudo;
-                ?>
-
-            </aside>
-
-            </div>
-            <div class="retorno">
-                <h2>Retorne a página de busca</h2>
-                <button type="button" onclick="window.location.href='../index.html'"></button>
-            </div>
-    </body>
-
-</html>
-
-
 
 
 

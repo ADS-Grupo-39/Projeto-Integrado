@@ -2,13 +2,7 @@
 require 'conexao.php';
 
 $termo = trim($_GET["termo"] ?? "");
-
-if(empty($termo)){
-    header("Location:../index.html");
-    exit;
-}
      
-
 $sql = "SELECT * FROM tb_emergencias WHERE tipo LIKE '%$termo%'";
 
 $resultado = $conexao->query($sql);

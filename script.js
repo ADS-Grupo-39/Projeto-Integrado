@@ -21,15 +21,22 @@ formulario.addEventListener("submit", function(event) {
                 return;
             }
 
-            let dados = data.split("|");
+            resultado.innerHTML = "";
+            let linhas = data.trim().split("\n");
 
-            resultado.innerHTML = `
-                <h2>${dados[0]}</h2>
-                <p>Faixa etária: ${dados[1]}</p>
-                <button id="protocolo"></button>
-            `;
-            document.getElementById("protocolo").onclick = function() {
-            location.href = dados[2];
-        }
+            linhas.forEach((linha, i) => {
+                let dados = linha.split("|");
+                let idBotao = "protocolo_" + i;
+
+                resultado.innerHTML += `
+                    <h2>${dados[0]}</h2>
+                    <p>Faixa etária: ${dados[1]}</p>
+                    <button id="${idBotao}"></button>
+                `;
+
+                document.getElementById(idBotao).onclick = function() {
+                    location.href = dados[2];
+                };
+            });
         });
 });

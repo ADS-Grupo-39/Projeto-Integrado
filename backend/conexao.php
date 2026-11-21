@@ -4,7 +4,7 @@ $servidor = "localhost";
 $usuario = "root";
 $senha = "root";
 $banco = "db_primeiros_socorros";
-$port = 3307;
+$port = 3306;
 
 $conexao = new mysqli($servidor, $usuario, $senha, $banco, $port);
 

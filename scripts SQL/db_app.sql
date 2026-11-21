@@ -13,6 +13,7 @@ CREATE TABLE tb_emergencias (
 INSERT INTO tb_emergencias (tipo, protocolo, faixa_etaria, favorito) VALUES
 	('Engasgo', 'protocolos/engasgo_adulto.html', 'Adultos', TRUE),
 	('Queimaduras', 'protocolos/queimadura_crianca.html', 'Crianças', FALSE),
+	('Queimaduras', 'protocolos/queimadura_adulto.html', 'Adultos', FALSE),
 	('Parada Cardiorrespiratória (PCR)', 'protocolos/pcr_adulto.html', 'Adultos', TRUE),
 	('Cortes e Sangramentos Profusos', 'protocolos/cortes_crianca.html', 'Crianças', FALSE),
 	('Convulsão', 'protocolos/convulsao_bebes.html', 'Bebês', FALSE);

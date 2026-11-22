@@ -10,7 +10,7 @@ formulario.addEventListener("submit", function(event) {
         return;
     }
 
-    fetch("backend/resultado.php?termo=" + termo)
+    fetch("backend/resultado.php?termo=" + encodeURIComponent(termo))
         .then(resposta => resposta.text())
         .then(data => {
 
@@ -33,8 +33,11 @@ formulario.addEventListener("submit", function(event) {
                     <p>Faixa etária: ${dados[1]}</p>
                     <button id="${idBotao}"></button>
                 `;
+            });
 
-                document.getElementById(idBotao).onclick = function() {
+            linhas.forEach((linha, i) => {
+                let dados = linha.split("|");
+                document.getElementById("protocolo_" + i).onclick = function() {
                     location.href = dados[2];
                 };
             });

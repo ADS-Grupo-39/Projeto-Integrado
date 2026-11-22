@@ -90,12 +90,11 @@ button:hover {
 }
 #resultado {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 15px;
     margin-top:4vh;
-    
-
     font-family: inherit;
     font-size: clamp(18px, 2vw, 24px);
     line-height: 1;

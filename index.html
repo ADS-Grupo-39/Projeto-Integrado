@@ -2,10 +2,11 @@
 <html lang="pt-BR">
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style-favoritos.css">
 
     <title>Primeiros Socorros</title>
 </head>
@@ -15,9 +16,9 @@
     <h1>Primeiros Socorros</h1>
     </div>
     <div class="box1">
-    
-    
-    
+
+
+
         <form id="formPesquisa" action="backend/resultado.php" method="GET">
 
         <label for="termo">Pesquisar emergência:</label>
@@ -28,17 +29,20 @@
             name="termo"
             placeholder="Pesquisar"
         >
-        
+
         <button type="submit"> </button>
-       
+
     </form>
+
+    <a class="btn-favoritos" href="backend/favoritos.php">Meus favoritos</a>
+
     <div id="resultado">
 
     </div>
     <script src="script.js"></script>
     </div>
 
-    
+
 </body>
 
 </html>

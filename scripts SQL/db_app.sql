@@ -3,7 +3,7 @@ CREATE DATABASE db_primeiros_socorros;
 USE db_primeiros_socorros;
 
 CREATE TABLE tb_emergencias (
-	id BINARY(16) DEFAULT(UUID_TO_BIN(UUID())) NOT NULL PRIMARY KEY, -- UUID aumenta a segurança do app e TO_BIN aumenta ainda mais pro esconder o número gerado
+	id BINARY(16) DEFAULT (UNHEX(REPLACE(UUID(), '-', ''))) NOT NULL PRIMARY KEY, -- UUID aumenta a segurança do app e TO_BIN aumenta ainda mais pro esconder o número gerado
 	tipo VARCHAR(100) NOT NULL,
 	protocolo VARCHAR(100),
 	faixa_etaria ENUM('Bebês','Crianças', 'Adultos'),

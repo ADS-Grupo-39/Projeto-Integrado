@@ -1,3 +1,7 @@
+
+
+<form action="../backend/favoritar.php" method="POST">
+    <button type="submit">Favoritar</button>
 <?php
 require 'conexao.php';
 

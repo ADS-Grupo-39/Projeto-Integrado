@@ -1,60 +1,183 @@
-* {
+/* Reset e variáveis de tema */
+:root {
+    --bg-page: #f4f6f9;
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #475569;
+    --primary: #0f4c81;
+    --primary-light: #e0f2fe;
+    --danger-bg: #fff5f5;
+    --danger-border: #e11d48;
+    --danger-text: #881337;
+    --border-subtle: #e2e8f0;
+    --radius: 14px;
+    --shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 24px 16px 48px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 16px;
-    line-height: 1.5;
-    color: #222222;
-    background-color: #f5f5f5;
-    max-width: 420px;
-    margin: 0 auto;
-    padding: 16px;
+    line-height: 1.65;
+    color: var(--text-main);
+    background-color: var(--bg-page);
 }
 
+/* Cabeçalho principal */
 h1 {
-    font-size: 22px;
-    line-height: 1.25;
+    max-width: 780px;
+    margin: 0 auto 32px;
+    padding: 24px 20px;
     text-align: center;
-    margin-bottom: 20px;
-    color: #b71c1c;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--primary);
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    border-bottom: 4px solid var(--primary);
+    box-shadow: var(--shadow);
 }
 
+/* Lista numerada personalizada */
 ol {
-    padding-left: 20px;
+    counter-reset: passo;
+    list-style: none;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 ol > li {
-    font-weight: bold;
-    font-size: 18px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin-bottom: 14px;
-    border: 1px solid #dddddd;
+    counter-increment: passo;
+    position: relative;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius);
+    padding: 22px 24px 24px 74px;
+    box-shadow: var(--shadow);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
 }
 
+/* Badge numerado à esquerda */
+ol > li::before {
+    content: counter(passo);
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+/* Parágrafos dentro de cada passo */
 ol > li p {
-    font-weight: normal;
-    font-size: 15px;
-    margin-top: 8px;
-    color: #333333;
+    margin: 12px 0 0;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-main);
 }
 
-/* Ajuste das imagens para tela de celular */
-img {
+ol > li p:first-of-type {
+    margin-top: 14px;
+}
+
+/* Ênfases no texto */
+b {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* Imagens ilustrativas */
+ol > li img {
     display: block;
     width: 100%;
-    max-width: 100%;
+    max-width: 480px;
     height: auto;
-    border-radius: 6px;
-    margin-top: 10px;
+    margin: 18px auto 4px;
+    border-radius: 10px;
+    border: 1px solid var(--border-subtle);
+    object-fit: cover;
 }
 
-/* Espaçamento caso a imagem fique solta entre itens da lista */
-ol > img {
-    margin-bottom: 14px;
+/* Destaque especial para o último item: "O que NÃO fazer" */
+ol > li:last-child {
+    background-color: var(--danger-bg);
+    border: 2px solid var(--danger-border);
+    color: var(--danger-text);
+}
+
+ol > li:last-child::before {
+    content: "!";
+    background-color: var(--danger-border);
+}
+
+ol > li:last-child p {
+    color: #4c0519;
+}
+
+ol > li:last-child b {
+    color: var(--danger-border);
+    text-transform: uppercase;
+    font-size: 0.92em;
+    letter-spacing: 0.02em;
+}
+
+button {
+    display: block;
+    margin: 24px auto 0;
+    padding: 10px 20px;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+
+    border: 2px solid var(--primary);
+    border-radius: var(--radius);
+
+    cursor: pointer;
+    transition: 0.2s ease;
+    opacity: 90%;
+}
+
+button:hover {
+    color: #0059ff;
+}
+
+
+/* Responsividade para telas pequenas */
+@media (max-width: 560px) {
+    body {
+        padding: 16px 12px 36px;
+    }
+
+    ol > li {
+        padding: 68px 18px 20px;
+    }
+
+    ol > li::before {
+        left: 18px;
+        top: 16px;
+        width: 36px;
+        height: 36px;
+    }
 }

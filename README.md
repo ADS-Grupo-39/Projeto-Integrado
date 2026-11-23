@@ -26,7 +26,7 @@ de informações sobre primeiros socorros em diferentes situações de emergênc
 5. Acessar o projeto pelo navegador.
 
 ## Autores
-- Vivian de Souza Rodrigues
+- Vivian de Sousa Rodrigues
 - Henrique da Costa Sardeiro
 - Mateus do Nascimento Rossete
 

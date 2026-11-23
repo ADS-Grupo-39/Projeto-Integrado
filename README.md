@@ -8,7 +8,6 @@ de informações sobre primeiros socorros em diferentes situações de emergênc
 ## Funcionalidades
 - Pesquisa de emergências
 - Consulta de protocolos
-- Identificação da faixa etária
 - Sistema de favoritos
 - Acesso aos procedimentos de primeiros socorros
 

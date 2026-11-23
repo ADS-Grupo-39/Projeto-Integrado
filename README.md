@@ -32,13 +32,13 @@ de informações sobre primeiros socorros em diferentes situações de emergênc
 - Mateus do Nascimento Rossete
 
 ## Estrutura do Projeto
-Projeto-Integrado/
-├── backend/          # Arquivos PHP e conexão com o banco
-├── database/         # Arquivos relacionados ao banco de dados (Consultas comentadas)
-├── imgs/             # Imagens utilizadas no projeto
-├── protocolos/       # Páginas dos protocolos de primeiros socorros
-├── scripts SQL/      # Scripts para criação e inserção dos dados (Execução automatica)
-├── index.html        # Página inicial
-├── script.js         # Funcionalidades e interações da página
-├── style2.css        # Estilos da página principal
-└── style-favoritos.css # Estilos relacionados aos favoritos
+- Projeto-Integrado/
+- backend/          # Arquivos PHP e conexão com o banco
+- database/         # Arquivos relacionados ao banco de dados (Consultas comentadas)
+- imgs/             # Imagens utilizadas no projeto
+- protocolos/       # Páginas dos protocolos de primeiros socorros
+- scripts SQL/      # Scripts para criação e inserção dos dados (Execução automatica)
+- index.html        # Página inicial
+- script.js         # Funcionalidades e interações da página
+- style2.css        # Estilos da página principal
+- style-favoritos.css # Estilos relacionados aos favoritos
